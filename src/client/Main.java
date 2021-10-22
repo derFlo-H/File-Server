@@ -18,13 +18,11 @@ public class Main {
 		try {
 			
 			// Create Socket and Data streams
-			Socket s = new Socket("localhost", 69);
+			Socket s = new Socket("localhost", 6666);
 			DataInputStream dIn = new DataInputStream(s.getInputStream());
 			DataOutputStream dOut = new DataOutputStream(s.getOutputStream());
 			
-			// Send string to server
-			dOut.writeUTF("hi server");
-			dOut.flush();
+			sendFile(dOut, "a.txt");
 			
 			// Close data streams and socket
 			dOut.close();
@@ -65,6 +63,7 @@ public class Main {
 				send(dOut, sc.nextLine());
 			}
 			
+			send(dOut, "0e");
 			// Close scanner
 			sc.close();
 			
