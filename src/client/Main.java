@@ -3,6 +3,7 @@ package client;
 import java.net.Socket;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.util.Scanner;
 
 /*
@@ -41,7 +42,8 @@ public class Main {
 		try {
 			
 			// Create Scanner
-			Scanner sc = new Scanner(fileName);
+			File file = new File(fileName);
+			Scanner sc = new Scanner(file);
 			
 			// Read file
 			while(sc.hasNextLine()) {
