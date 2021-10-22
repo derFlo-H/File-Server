@@ -19,10 +19,6 @@ public class Main {
 			DataInputStream dIn = new DataInputStream(s.getInputStream());
 			DataOutputStream dOut = new DataOutputStream(s.getOutputStream());
 			
-			// recieve string from client and print it
-			String text = dIn.readUTF();
-			System.out.println(text);
-			
 			// Close data streams and sockets
 			dOut.close();
 			dIn.close();
@@ -33,6 +29,15 @@ public class Main {
 			e.printStackTrace();
 		}
 
+	}
+	
+	// This method recieves a string from the client
+	public static String recieve(DataInputStream dIn) {
+		String text = "";
+		
+		text = dIn.readUTF();
+		
+		return text;
 	}
 
 }

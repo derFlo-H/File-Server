@@ -6,10 +6,6 @@ import org.junit.jupiter.api.Test;
 
 class Tests {
 		
-	@Test
-	void testFileReader() {
-		System.out.println(Main.readFile("test.txt"));
-		assert(Main.readFile("test.txt").equals("abc"));
-	}
+	
 
 }
