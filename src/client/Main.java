@@ -52,9 +52,8 @@ public class Main {
 		
 	}
 	
-	// this method converts a file into a long string
-	public static String readFile(String fileName) {
-		String text = "";
+	// this method sends a file to the Server
+	public static void sendFile(DataOutputStream dOut, String fileName) {
 		try {
 			
 			// Create Scanner
@@ -63,7 +62,7 @@ public class Main {
 			
 			// Read file
 			while(sc.hasNextLine()) {
-				text += sc.nextLine();
+				send(dOut, sc.nextLine());
 			}
 			
 			// Close scanner
@@ -73,7 +72,6 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		return text;
 	}
 
 }
