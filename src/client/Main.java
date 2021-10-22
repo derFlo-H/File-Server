@@ -4,6 +4,7 @@ import java.net.Socket;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 /*
@@ -34,6 +35,21 @@ public class Main {
 			e.printStackTrace();
 		}
 
+	}
+	
+	// this method sends a string to the server
+	public static void send(DataOutputStream dOut, String content) {
+		
+		try {
+			
+			dOut.writeUTF(content);
+			dOut.flush();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	// this method converts a file into a long string
