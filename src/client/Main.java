@@ -3,6 +3,7 @@ package client;
 import java.net.Socket;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.util.Scanner;
 
 /*
  * Client for file server
@@ -32,6 +33,29 @@ public class Main {
 			e.printStackTrace();
 		}
 
+	}
+	
+	// this method converts a file into a long string
+	public static String readFile(String fileName) {
+		String text = "";
+		try {
+			
+			// Create Scanner
+			Scanner sc = new Scanner(fileName);
+			
+			// Read file
+			while(sc.hasNextLine()) {
+				text += sc.nextLine();
+			}
+			
+			// Close scanner
+			sc.close();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return text;
 	}
 
 }
