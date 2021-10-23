@@ -22,7 +22,32 @@ public class Main {
 			DataInputStream dIn = new DataInputStream(s.getInputStream());
 			DataOutputStream dOut = new DataOutputStream(s.getOutputStream());
 			
-			sendFile(dOut, "a.txt");
+			// user input loop
+			boolean running = true;
+			Scanner sc = new Scanner(System.in);
+			String input = "";
+			while(running) {
+				
+				input = sc.nextLine();
+				// Checking if user closes connection
+				// and sending it to server
+				if(input.equals("close")) {
+					send(dOut, "close");
+					running = false;
+					break;
+				} else {
+					
+					if(input.contains("send")) {
+						
+						String par[] = input.split(" ");
+						System.out.println(par[1]);
+						sendFile(dOut, par[1]);
+						
+					}
+					
+				}
+				
+			}
 			
 			// Close data streams and socket
 			dOut.close();
