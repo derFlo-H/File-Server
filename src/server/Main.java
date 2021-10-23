@@ -67,7 +67,7 @@ public class Main {
 				
 				text = recieve(dIn);
 				if(text.equals("0e")) {run = false; break;}
-				fw.write(text);
+				fw.write(text + "\n");
 				
 			}
 			
