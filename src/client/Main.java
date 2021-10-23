@@ -1,6 +1,9 @@
 package client;
 
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -18,14 +21,20 @@ public class Main {
 		try {
 			
 			// Create Socket and Data streams
-			Socket s = new Socket("localhost", 6666);
-			DataInputStream dIn = new DataInputStream(s.getInputStream());
-			DataOutputStream dOut = new DataOutputStream(s.getOutputStream());
+			Socket s = new Socket();
 			
 			// user input loop
 			boolean running = true;
 			Scanner sc = new Scanner(System.in);
 			String input = "";
+			
+			if(running) {
+				String par[] = sc.nextLine().split(" ");
+				s.connect(new InetSocketAddress(par[1], Integer.parseInt(par[2])));
+			}
+			
+			DataInputStream dIn = new DataInputStream(s.getInputStream());
+			DataOutputStream dOut = new DataOutputStream(s.getOutputStream());
 			while(running) {
 				
 				input = sc.nextLine();
